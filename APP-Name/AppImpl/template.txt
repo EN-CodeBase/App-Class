@@ -1,8 +1,9 @@
 
 How to use the App Class.
 
-1. Define the main app functionality inside of Update.cpp file
-2. Define all functionality inside the AppImpl folder
-3. Compile with CompileMe
+1. Define the App Setup function inside Setup.cpp
+2. Define the main app functionality inside of Update.cpp file
+3. Define all functionality inside the AppImpl folder
+4. Compile with CompileMe
 
-It will compile with all dll 
+It will compile with all dll if it finds the bin folder
