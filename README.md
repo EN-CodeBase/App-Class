@@ -53,4 +53,5 @@ Important: AppName is the name of the parent folder.
 
 - Support for Linux and macOS
 - Latency and Clock Speed controll
+- Error Handling
 
