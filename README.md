@@ -46,8 +46,9 @@ This will generate:
 
 AppName.exe
 
-This is the main executable of the app.
-Important: AppName is the name of the parent folder.
+This is the main executable of the app.<br>
+Important: AppName is the name of the parent folder.<br>
+Important: If AppImpl or Update.cpp are not found in Folder they will be created
 
 # Upcoming Features
 
