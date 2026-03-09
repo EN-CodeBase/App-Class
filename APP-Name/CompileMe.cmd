@@ -32,9 +32,6 @@ if not exist "AppImpl\Update.cpp" (
     echo.
     echo.
     echo // ----------------------------------
-    echo // Static member definitions
-    echo std::atomic_bool App::running{false};
-    echo std::thread App::PrivateThread;
     echo using namespace std;
     echo // ----------------------------------
     echo.
@@ -46,6 +43,31 @@ if not exist "AppImpl\Update.cpp" (
     ) > "AppImpl\Update.cpp"
 
     echo Compilation Stopped: Didnt find 'Update.cpp' in AppImpl. Created 'Update.cpp' in AppImpl
+    exit /b 1
+)
+
+if not exist "AppImpl\Setup.cpp" (
+    (
+    echo #include "../App.h"
+    echo // INCLUDES
+    echo #include ^<iostream^>
+    echo.
+    echo.
+    echo // ----------------------------------
+    echo // Static member definitions
+    echo std::atomic_bool App::running{false};
+    echo std::thread App::PrivateThread;
+    echo using namespace std;
+    echo // ----------------------------------
+    echo.
+    echo void App::Setup^(^) {
+    echo.
+    echo /* TODO:    Add App Setup Sequence Here   */
+    echo.
+    echo }
+    ) > "AppImpl\Setup.cpp"
+
+    echo Compilation Stopped: Didnt find 'Setup.cpp' in AppImpl. Created 'Setup.cpp' in AppImpl
     exit /b 1
 )
 

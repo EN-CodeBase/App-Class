@@ -20,6 +20,7 @@
 #include <iostream>
 #include <thread>
 #include <atomic>
+#include <stdexcept>
 
 class App {
 private:
@@ -28,7 +29,17 @@ private:
 
     static void ThreadMain() {
         while (running.load()) {
-            Update();
+            try{
+
+                Update();
+
+            } catch(const std::runtime_error& e) {
+                std::cout << e.what() << std::endl; 
+                // add runtime error handling
+                
+            } catch(const std::exception& e) {
+                std::cout << e.what() << std::endl;
+            }
         }
     }
 
@@ -36,8 +47,13 @@ public:
 
     static void Start() {
         running.store(true);
+
+        App::Setup();
+
         PrivateThread = std::thread(ThreadMain);
     }
+
+    static void Setup();
 
     static void Update();
 
