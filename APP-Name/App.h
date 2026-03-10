@@ -25,7 +25,7 @@
 class App {
 private:
     static std::atomic_bool running;
-    static std::thread PrivateThread;
+    static std::thread AppThread;
 
     static void ThreadMain() {
         while (running.load()) {
@@ -50,7 +50,7 @@ public:
 
         App::Setup();
 
-        PrivateThread = std::thread(ThreadMain);
+        AppThread = std::thread(ThreadMain);
     }
 
     static void Setup();
@@ -59,7 +59,8 @@ public:
 
     static void Stop() {
         running.store(false);
-        if (PrivateThread.joinable())
-            PrivateThread.join();
+        if (AppThread.joinable())
+            AppThread.join();
     }
 };
+
