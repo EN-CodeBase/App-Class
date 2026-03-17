@@ -2,11 +2,6 @@
 // INCLUDES
 #include <iostream>
 
-
-// ----------------------------------
-// Static member definitions
-std::atomic_bool App::running{false};
-std::thread App::PrivateThread;
 using namespace std;
 // ----------------------------------
 
