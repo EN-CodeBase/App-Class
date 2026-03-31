@@ -57,10 +57,17 @@ public:
 
     static void Update();
 
+    /** @brief Stop the app instance */
     static void Stop() {
         running.store(false);
         if (AppThread.joinable())
             AppThread.join();
+        
+        std::cout << "APP: Exiting and Killing App instance.\n";
+    }
+
+    ~App(){
+        App::Stop();
     }
 };
 
